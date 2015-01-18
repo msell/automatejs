@@ -1,5 +1,6 @@
 var growl = require('growl');
 var ipChanged = require('./if/publicIpChanged.js');
+var killTorrents = require('./then/killTorrents.js');
 
 module.exports = {
     start: function () {
@@ -10,7 +11,8 @@ module.exports = {
 
 
 function performRecipes() {
-    setTimeout(function () {                
+    setTimeout(function () {  
+        killTorrents();
         ipChanged();
         
         
