@@ -1,4 +1,5 @@
 var growl = require('growl');
+var ipChanged = require('./if/publicIpChanged.js');
 
 module.exports = {
     start: function () {
@@ -7,9 +8,12 @@ module.exports = {
     }
 }
 
+
 function performRecipes() {
-    setTimeout(function () {        
-        growl('looking for recipes');
+    setTimeout(function () {                
+        ipChanged();
+        
+        
         performRecipes();
     }, 9000);
 
