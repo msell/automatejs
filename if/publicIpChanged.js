@@ -1,8 +1,9 @@
 var http = require('http');
-var currentIp = currentIp || '';
 var RSVP = require('rsvp');
+var lastIp = process.env.PUBLIC_IP || '';
 
-module.exports = function () {
+module.exports = function () {      
+    
     var options = {
         hostname: 'icanhazip.com'
     };
@@ -11,27 +12,30 @@ module.exports = function () {
         http.get(options, function (res) {
             var ip = '';
 
-            res.on('data', function (chunk) {
-                ip += chunk;
+            res.on('data', function (chunk) {                
+                ip += chunk;                
             });
-            res.on('end', function () {
+            
+            res.on('end', function () {                                
+                
                 if (res.statusCode != 200) {
-                    reject(this)
+                    reject();
+                }
+                
+                ip = ip.replace('\n', '');
+                lastIp = lastIp.replace('\n', '');
+                
+                if (ip == lastIp){
+                    console.log('ip didnt change.. reject promise')
+                    reject();
                 } else {
-                    var ipChanged = ip !== currentIp;
-                    if (ipChanged) {
-                        console.log('ip changed from ' + currentIp + ' to ' + ip);
-                        currentIp = ip;
-                        resolve(ip);
-                    }
-                    else {
-                        // ip did not change, reject to break the chain here
-                        reject(this);
-                    }
+                    console.log('ip changed from ' + lastIp + ' to ' + ip);
+                    lastIp = ip;
+                    resolve(ip);
                 }
             })
         })
     })
-    
+
     return promise;
 }
