@@ -12,6 +12,7 @@
     "es6-promise": "^2.0.1",
     "express": "^4.11.0",
     "forever-monitor": "^1.5.2",
-    "growl": "^1.8.1"
+    "growl": "^1.8.1",
+    "rsvp": "^3.0.16"
   }
 }
