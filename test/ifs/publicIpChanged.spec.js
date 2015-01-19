@@ -1,33 +1,34 @@
 var sut = require('../../if/publicIpChanged.js'),
     chai = require('chai'),
+    should = require('chai').should(),
     chaiAsPromised = require('chai-as-promised'),
-    sinon = require('sinon');
+    sinon = require('sinon'),
+    RSVP = require('rsvp');
 
 chai.use(chaiAsPromised);
 
-describe('publicIpChanged', function(){
-//    describe('stubbing out public ip', function(){
-//    var promise = sut();
-//        var successCb = function(){console.log('success');}
-//        var failureCb = function(){console.log('failure');}
-//        promise.then(successCb, failureCb);
-//        
-//        it('should use the stub value', function(done){
-//
-//            //promise.should.be.fulfilled;
-//            //promise.then().should.be.fulfilled;        
-//            //assert.isFulfilled(promise,"foo");
-//        })                 
-//    })
-    describe('when public ip changes', function(){
-        it('should resolve the promise');    
+describe('publicIpChanged', function () {
+
+    var promise;
+    beforeEach(function () {
+        promise = sut();
     })
-                
-    describe('when public ip does not change', function(){
+    describe('when public ip changes', function () {
+        it('should resolve the promise', function (done) {
+            promise.should.be.instanceOf(RSVP.Promise);
+            promise.then(function (value) {
+                console.log(value);
+                done();
+            });
+            //promise.should.become.resolved.and.notify(done);
+        });
+    })
+
+    describe('when public ip does not change', function () {
         it('should reject the promise');
     })
-    
-    describe('when public ip is on watchlist', function(){
+
+    describe('when public ip is on watchlist', function () {
         it('should reject the promise')
     })
 })

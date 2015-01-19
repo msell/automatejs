@@ -1,5 +1,5 @@
 --timeout 5000
---require should
+--growl
 --ui bdd
 --recursive
 --reporter spec 
