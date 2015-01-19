@@ -15,12 +15,15 @@ describe('publicIpChanged', function () {
     })
     describe('when public ip changes', function () {
         it('should resolve the promise', function (done) {
-            promise.should.be.instanceOf(RSVP.Promise);
-            promise.then(function (value) {
-                console.log(value);
-                done();
-            });
-            //promise.should.become.resolved.and.notify(done);
+            promise.should.be.instanceOf(RSVP.Promise);                        
+            
+            // Traditional way to resove test promise:
+//            promise.then(function (value) {
+//                done();
+//            });
+            
+            // chai-as-promised way
+            promise.should.be.fulfilled.and.notify(done);            
         });
     })
 
