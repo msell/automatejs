@@ -28,12 +28,10 @@ describe('publicIpChanged', function () {
     })
 
     describe('when public ip does not change', function () {
-        it('should reject the promise', function(){
-            
-        });
+        it('should reject the promise');
     })
 
     describe('when public ip is on watchlist', function () {
-        it('should reject the promise')
+        it('should reject the promise');
     })
 })
