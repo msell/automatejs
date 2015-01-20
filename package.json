@@ -1,24 +1,26 @@
 {
-  "name": "automatejs",
-  "version": "1.0.0",
-  "description": "If then then that style scripts",
-  "main": "automate.js",
-  "scripts": {
-    "test": "./node_modules/.bin/mocha -w test/**/*spec.js"
-  },
-  "author": "Matt Sell",
-  "license": "ISC",
-  "dependencies": {
-    "es6-promise": "^2.0.1",
-    "express": "^4.11.0",
-    "forever-monitor": "^1.5.2",
-    "growl": "^1.8.1",
-    "rsvp": "^3.0.16"
-  },
-  "devDependencies": {
-    "chai": "^1.10.0",
-    "chai-as-promised": "^4.1.1",
-    "mocha": "^2.1.0",
-    "sinon": "^1.12.2"
-  }
+    "name": "automaticjs",
+    "version": "1.0.0",
+    "description": "If then then that style scripts",
+    "main": "automate.js",
+    "scripts": {
+        "start": "node server.js",
+        "debug": "node debug server.js",
+        "test": "./node_modules/.bin/mocha -w test/**/*spec.js"
+    },
+    "author": "Matt Sell",
+    "license": "ISC",
+    "dependencies": {
+        "es6-promise": "^2.0.1",
+        "express": "^4.11.0",
+        "forever-monitor": "^1.5.2",
+        "growl": "^1.8.1",
+        "rsvp": "^3.0.16"
+    },
+    "devDependencies": {
+        "chai": "^1.10.0",
+        "chai-as-promised": "^4.1.1",
+        "mocha": "^2.1.0",
+        "sinon": "^1.12.2"
+    }
 }
