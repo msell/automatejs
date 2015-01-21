@@ -11,18 +11,5 @@ module.exports = {
 }
 
 function performRecipes() {
-    setTimeout(function () {
-        //        ipChanged().then(killProcess('Airmail'), function(error){            
-        //            growl(error);
-        //        });            
-
-//        ipChanged().then(function (data) {
-//            console.log('data ' + data);
-//        }) 
-        //later.parse.recur().on(2).minute();
-        scheduledTask("every 3 secs").then(console.log('task fired'));
-
-        performRecipes();
-    }, 9000);
-
+        scheduledTask("daily standup", "every 3 secs").then(console.log('task fired'));
 }
