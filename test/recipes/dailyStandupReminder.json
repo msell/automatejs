@@ -1,0 +1,15 @@
+{
+    "name": "Daily Standup Reminder",
+    "triggers": [{
+        "name": "scheduledTask",
+        "options": {"when" : "at 9:14 am every weekday"}
+    }],
+    "actions": [
+        {
+            "name": "notify",
+            "options": {
+                "type": "growl"
+            }
+        }
+    ]
+}

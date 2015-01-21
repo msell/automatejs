@@ -1,6 +1,6 @@
 var http = require('http');
 var RSVP = require('rsvp');
-var lastIp = process.env.PUBLIC_IP || '';
+var lastIp = '';
 
 module.exports = function () {      
     

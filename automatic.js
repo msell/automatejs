@@ -1,6 +1,7 @@
 var growl = require('growl');
-var ipChanged = require('./if/publicIpChanged.js');
-var killProcess = require('./then/killProcess.js');
+var ipChanged = require('./triggers/publicIpChanged.js');
+var scheduledTask = require('./triggers/scheduledTask.js');
+var killProcess = require('./actions/killProcess.js');
 
 module.exports = {
     start: function () {
@@ -15,13 +16,11 @@ function performRecipes() {
         //            growl(error);
         //        });            
 
-        ipChanged().then(function (data) {
-            console.log('data ' + data);
-
-        }),
-        function (error) {
-            console.log(error);
-        }
+//        ipChanged().then(function (data) {
+//            console.log('data ' + data);
+//        }) 
+        //later.parse.recur().on(2).minute();
+        scheduledTask("every 3 secs").then(console.log('task fired'));
 
         performRecipes();
     }, 9000);
