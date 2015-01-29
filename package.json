@@ -21,7 +21,8 @@
     "later": "^1.1.6",
     "lodash": "^2.4.1",
     "moment": "^2.9.0",
-    "rsvp": "^3.0.16"
+    "rsvp": "^3.0.16",
+    "say": "^0.6.0"    
   },
   "devDependencies": {
     "chai": "^1.10.0",

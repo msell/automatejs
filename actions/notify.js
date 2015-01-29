@@ -1,10 +1,18 @@
-var growl = require('growl')
-RSVP = require('rsvp');
+var growl = require('growl'),
+    say = require('say'),
+    RSVP = require('rsvp');
+
 
 module.exports = {
     viaGrowl: function (message) {
         return new RSVP.Promise(function (resolve, reject) {
             growl(message);
+            resolve(message);
+        })
+    },
+    viaSpeak: function (message) {
+        return new RSVP.Promise(function (resolve, reject) {
+            say.speak(message);
             resolve(message);
         })
     },
