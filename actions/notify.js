@@ -12,7 +12,7 @@ module.exports = {
     },
     viaSpeak: function (message) {
         return new RSVP.Promise(function (resolve, reject) {
-            say.speak(message);
+            say.speak('Alex', message);
             resolve(message);
         })
     },

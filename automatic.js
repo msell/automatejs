@@ -17,6 +17,6 @@ function performRecipes() {
     var s = later.parse.text("every 3 secs");
         later.setInterval(function(){
             console.log('fire');            
-            scheduledTask("daily standup").then(notify.viaGrowl).then(notify.viaConsole);
+            scheduledTask("whats up man").then(notify.viaGrowl).then(notify.viaSpeak);
         }, s);            
 }
